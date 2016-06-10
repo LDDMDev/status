@@ -3,12 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>LDDM e-Sports | Status</title>
+	<meta name="description" content="Esta página mostra o estado dos servidores da LDDM e-Sports.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" href="style.css">
+	<meta property="og:title" content="LDDM e-Sports | Status">
+	<meta property="og:url" content="http://lddm.com.br">
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:site_name" content="LDDM e-Sports">
+	<meta property="og:description" content="Esta página mostra o estado dos servidores da LDDM e-Sports.">
+	<meta property="og:image" content="http://i.imgur.com/7FAP8El.jpg" />
+	<meta name="robots" content="noodp"/>
+	
+	<link rel="SHORTCUT ICON" href="assets/favicon.png" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	
-	<script src="//cdnjs.cloudflare.com/ajax/libs/mithril/0.2.5/mithril.min.js"></script>
-	<script src="app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
+	<script src="assets/js/vue-resource.min.js"></script>
+	<div id="wrapper">
+		<div class="container" id="status">
+			<!-- Page-Title -->
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h1 class="page-title">LDDM Status</h1>
+					<p>Esta página mostra o estado dos servidores da LDDM e-Sports.</p>
+				</div>
+			</div>
+			<!-- Official Servers -->
+			<div class="row servers" :class="{'show': showServers}">
+				<div class="col-sm-12 col-md-8 col-md-offset-2">
+					<h4>Servidores Oficiais</h4>
+					<div class="card-box" v-for="server in monitors" v-if="!server.custom">
+						<img :src=" 'assets/icons/' + server.img + '.png'" alt="Icon" class="icon" onerror='this.style.visibility = "hidden"'>
+						<div class="info">
+							<span class="title">{{ server.alias }}</span>
+							<p>{{ server.address }}</p>
+						</div>
+						<div class="status text-center" :class="{'online': server.status == 2, 'offline': server.status == 9}">{{ statusText[server.status] }}</div>
+					</div>
+				</div>
+			</div>
+			<!-- Non-Official Servers -->
+			<div class="row servers" :class="{'show': showServers}">
+				<div class="col-sm-12 col-md-8 col-md-offset-2">
+					<h4>Servidores Não-Oficiais</h4>
+					<div class="card-box" v-for="server in monitors" v-if="server.custom">
+						<img :src="'assets/icons/' + server.img + '.png'" alt="Icon" class="icon" onerror='this.style.visibility = "hidden"'>
+						<div class="info">
+							<span class="title">{{ server.alias }}</span>
+							<p>{{ server.address }}</p>
+						</div>
+						<div class="status text-center" :class="{'online': server.status == 2, 'offline': server.status == 9}">{{ statusText[server.status] }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/app.js"></script>
 </body>
 </html>

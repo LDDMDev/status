@@ -1,0 +1,178 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);
+/*
+Author: Victor Pagani
+*/
+html {
+    position: relative;
+    min-height: 100%;
+    background: #ebeff2;
+}
+body {
+    background: #ebeff2;
+    font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color: #797979;
+}
+#wrapper {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #505458;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 10px 0;
+}
+h1 {
+  line-height: 43px;
+}
+h2 {
+  line-height: 35px;
+}
+h3 {
+  line-height: 30px;
+}
+h3 small {
+  color: #444444;
+}
+h4 {
+  line-height: 22px;
+}
+h4 small {
+  color: #444444;
+}
+h5 {
+  font-size: 15px;
+}
+h5 small {
+  color: #444444;
+}
+p {
+  line-height: 1.6;
+}
+* {
+  outline: none !important;
+}
+b {
+  font-weight: 600;
+}
+a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+a:active {
+  outline: 0;
+  text-decoration: none;
+}
+a:focus {
+  outline: 0;
+  text-decoration: none;
+}
+.text-dark {
+    color: #797979 !important;
+}
+.page-title {
+	font-size: 50px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 16px;
+}
+.page-title + p {
+	font-size: 16px;
+}
+.servers {
+	display: none;
+}
+.show {
+    display: block!important;
+}
+.card-box {
+	padding: 20px 20px 20px 20px;
+    border: 1px solid #e1e6e9;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+	height: 100px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.card-box .info {
+	display: inline-block;
+	height: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+}
+.card-box .title {
+	font-size: 24px;
+	line-height: 30px;
+	display: block;
+	color: #505458;
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 5px;
+}
+.card-box p {
+	margin: 0 0 0 2px;
+}
+.card-box .status {
+	height: 100px;
+	line-height: 100px;
+	background-color: #f2f5f7;
+	padding: 0 20px;
+	float: right;
+	margin: -20px -20px -20px 0;
+	min-width: 102px;
+}
+.status:before {
+	content:"";
+	display: inline-block;
+	border-radius: 50%;
+	height: 11px;
+    width: 11px;
+    margin-right: 5px;
+	background-color: #CACACA;
+}
+.status.online:before {
+	background-color: #60e437;
+}
+.status.maintenance:before {
+	background-color: #e4d837;
+}
+.status.offline:before {
+	background-color: #e46837;
+}
+.card-box .icon {
+	float: left;
+	height: 48px;
+	width: 48px;
+	margin-right: 20px;
+	background-position: 50% 50%;
+	background-size: 100% 100%;
+}
+@media (max-width: 400px) {
+	.card-box {
+		padding-left: 15px;
+	}
+	.card-box .title{
+		font-size: 20px;
+	}
+	.card-box .icon {
+		margin-right: 12px;
+		height: 24px;
+		width: 24px;
+	}
+	.card-box .status {
+		padding: 0 10px;
+		margin-left: 10px;
+		min-width: 82px;
+	}
+}
